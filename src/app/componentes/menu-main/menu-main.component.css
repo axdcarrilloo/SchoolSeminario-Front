@@ -1,0 +1,14 @@
+div > .navbar {
+    height: 40px;
+    margin-top: 8px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+div > .bg-menu {
+    background-color: #0cafe5;
+}
+
+li > a {
+    font-weight: bold;
+}

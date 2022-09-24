@@ -1,0 +1,16 @@
+
+#divPrincipal {
+    margin: 5px;
+}
+
+.divBusqueda {
+    margin: 5px;
+    width: max-content;
+    margin-left: auto;
+    margin-right: 1px;
+}
+
+div > table {
+    background-color: #DBE2F1;
+    border-radius: 10px;
+}
