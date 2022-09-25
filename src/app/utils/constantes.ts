@@ -2,5 +2,5 @@
 export const Constantes = {
     TIPOUSUARIO_ADMIN: "000",
     TIPOUSUARIO_ESTUDIANTE: "01",
-    TIPOUSUARIO_PROFESOR: "02"
+    TIPOUSUARIO_PROFESOR: "02",
 }

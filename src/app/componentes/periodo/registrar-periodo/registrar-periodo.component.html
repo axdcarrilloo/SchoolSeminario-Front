@@ -1,2 +1,16 @@
 
-<h1>Registrar periodo</h1>
+<div class="divPrincipal">
+    <form class="formularioRegistrar">
+        <div class="divCampos">
+            <label for="anno" class="labelLogin"> año </label>
+            <input type="text" id="anno" class="form-control inputLogin" placeholder="Año"/>
+
+            <label for="nombrePeriodo" class="labelLogin"> Nombre Periodo </label>
+            <select id="nombrePeriodo" class="form-control inputLogin">
+                <option [value]="item" *ngFor="let item of nombresPeriodo">{{item}}</option>
+            </select>
+        
+            <button type="submit" class="btn btn-primary btnIniciar"> Registrar </button>
+        </div>
+    </form>
+</div>

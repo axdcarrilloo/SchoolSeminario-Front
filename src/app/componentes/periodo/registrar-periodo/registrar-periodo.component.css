@@ -1,0 +1,9 @@
+
+.divPrincipal {
+    width: 30%;
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    border: solid;
+    margin-top: 13px;
+}

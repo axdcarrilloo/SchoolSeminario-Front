@@ -11,7 +11,7 @@ import { Constantes } from 'src/app/utils/constantes';
 })
 export class LoginComponent implements OnInit {
 
-  tiposUsuario: String[] = ["Estudiante","Profesor","Admin"];
+  tiposUsuario: string[] = ["Estudiante","Profesor","Admin"];
   tipoUsuarioSeleccionado: string = "";
   usuario: string = "";
   contrasenna: string = "";
