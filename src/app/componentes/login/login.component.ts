@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar():void {
-    console.log("El seleccionado fue " + this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
+    // console.log("El seleccionado fue " + this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
     if(this.validarUsuario()) {
       this.logeoRealizado(true);
       this.obtenerTipoUsuario(this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
