@@ -1,0 +1,28 @@
+
+<div id="divMenu"  *ngIf="enSession == 'No'"></div>
+
+<div id="divPrincipal" *ngIf="enSession == 'No'">
+    <div id="divLogin">
+        <img src="../assets/icons/EscudoSeminario.png" width="100" height="120">
+        <form class="formularioLogin" [formGroup]="usuarioLoginForm" (ngSubmit)="entrar()">
+            <div class="divCampos">
+                <label for="tipoUsuario" class="labelLogin"> Tipo de Usuario </label>
+                <select id="tipoUsuario" formControlName="tipoUsuario" class="form-control inputLogin">
+                    <option [value]="item" *ngFor="let item of tiposUsuario">{{item}}</option>
+                </select>
+
+                <label for="usuiario" class="labelLogin"> Usuario </label>
+                <input type="text" id="usuiario" formControlName="usuario" class="form-control inputLogin" placeholder="Usuario"/>
+            
+                <label for="contrasenna" class="labelLogin"> Contraseña </label>
+                <input type="password" id="contrasenna" formControlName="contrasenna" class="form-control inputLogin" placeholder="Contraseña"/>
+    
+                <a href="" class="aOlvidoContraseña"> Olvido su contraeña? </a><br/>
+
+                <button type="submit" class="btn btn-primary btnIniciar"> Entrar </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- [(ngModel)]="tipoUsuarioSeleccionado" -->
+<router-outlet></router-outlet>

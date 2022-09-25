@@ -1,0 +1,53 @@
+
+#divMenu {
+    height: 40px;
+    margin-top: 8px;
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #0cafe5;
+}
+
+#divLogin {
+    border: solid;
+    border-color: #0cafe5;;
+    width: 30%;
+    height: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13px;
+    background-color: #DBE2F1;
+    text-align: center;
+    padding: 3px;
+}
+
+.formularioLogin {
+    margin-top: 3px;
+    margin-top: 13px;
+}
+
+.divCampos {
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+.labelLogin {
+    color:#0cafe5;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.inputLogin {
+    text-align: center;
+    border-radius: 12px;
+    width: 250px;
+}
+
+div > .aOlvidoContraseña {
+    color: #6E9AF9;
+    font-size: small;
+}
+
+div > .btnIniciar {
+    margin-top: 10px;
+}

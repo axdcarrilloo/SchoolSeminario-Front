@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'menu-main',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuMainComponent implements OnInit {
 
-  constructor() { }
+  tipoUsuario: any = "";
+  enSession: any = "";
+
+  constructor() {
+    this.tipoUsuario = localStorage.getItem("tipoUsuario");
+    this.enSession = localStorage.getItem("enSession");
+    localStorage.removeItem('tipoUsuario');
+   }
 
   ngOnInit(): void {
   }
-
 }
