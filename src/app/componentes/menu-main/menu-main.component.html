@@ -1,10 +1,8 @@
 
-
-
-<div class="m-0 border-0 bd-example" *ngIf="enSession=='Si'">
+<div class="m-0 border-0 bd-example">
   <nav class="navbar navbar-expand-lg bg-menu">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/inicio">
+      <a class="navbar-brand" routerLink="inicio">
         <img src="../../../assets/icons/EscudoSeminario.png" alt="Bootstrap" width="60" height="54">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegación de palanca">
@@ -40,7 +38,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="consultar-periodo"> Periodo </a>
+                <a class="dropdown-item" routerLink="consultar-periodo"> Periodo </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#"> Curso </a>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,25 +11,25 @@ import { Constantes } from 'src/app/utils/constantes';
 })
 export class LoginComponent implements OnInit {
 
-  usuarioLoginForm: FormGroup;
   tiposUsuario: String[] = ["Estudiante","Profesor","Admin"];
   tipoUsuarioSeleccionado: string = "";
-  enSession: any = "";
+  usuario: string = "";
+  contrasenna: string = "";
+  @Output() logeado = new EventEmitter<Boolean>();
+  @Output() tipoUsuarioLogeado = new EventEmitter<string>();
 
-  constructor(private fb: FormBuilder, private route: Router) {
-    this.usuarioLoginForm = this.buildForm();
-    this.enSession = localStorage.getItem("enSession");
+  constructor() {
   }
   
   ngOnInit(): void {
   }
 
-  buildForm(): FormGroup{
-    return this.fb.group({
-      tipoUsuario: ['',  [Validators.required]],
-      usuario: ['',  [Validators.required]],
-      contrasenna: ['',  [Validators.required]]
-    });
+  obtenerTipoUsuario(usuario: string) {
+    this.tipoUsuarioLogeado.emit(usuario);
+  }
+
+  logeoRealizado(validarLogeo: Boolean) {
+    this.logeado.emit(validarLogeo);
   }
 
   validarTipoUsuario(tipoUsuario:String): any {
@@ -43,13 +43,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  validarUsuario(): Boolean {
+    if(this.usuario == "admin" && this.contrasenna == "1234") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   entrar():void {
-    console.log("El seleccionado fue " + this.validarTipoUsuario(this.usuarioLoginForm.value.tipoUsuario));
-    // this.route.navigate(['/consultar-cliente', this.clienteMain]);
-    this.tipoUsuarioSeleccionado = this.validarTipoUsuario(this.usuarioLoginForm.value.tipoUsuario);
-    localStorage.setItem("tipoUsuario",this.tipoUsuarioSeleccionado);
-    this.enSession = "Si";
-    localStorage.setItem("enSession", "Si");
-    this.route.navigate(['vista-principal']);
+    console.log("El seleccionado fue " + this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
+    if(this.validarUsuario()) {
+      this.logeoRealizado(true);
+      this.obtenerTipoUsuario(this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
+    } else {
+      console.log("Usuario errado");
+    }
   }
 }

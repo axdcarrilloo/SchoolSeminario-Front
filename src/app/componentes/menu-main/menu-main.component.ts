@@ -7,14 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MenuMainComponent implements OnInit {
 
-  tipoUsuario: any = "";
-  enSession: any = "";
+  @Input() tipoUsuario: string = "";
 
   constructor() {
-    this.tipoUsuario = localStorage.getItem("tipoUsuario");
-    this.enSession = localStorage.getItem("enSession");
-    localStorage.removeItem('tipoUsuario');
-   }
+  }
 
   ngOnInit(): void {
   }

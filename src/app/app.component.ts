@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-  enSession: any = "";
+  hiddenMenu: Boolean = false;
+  hiddenLogin: Boolean = true;
+  tipoUsuario: string = "";
 
-  constructor() {
-    localStorage.setItem("enSession", "No");
+  constructor(private route: Router) {
   }
 
   ngOnInit(): void {
-    this.enSession = localStorage.getItem("enSession");
+  }
+
+  recibirTipoUsuario(tipoUsuario: string):void {
+    this.tipoUsuario = tipoUsuario;
+  }
+
+  recibirLogeo(logeado: Boolean): void {
+    if(logeado) {
+      this.hiddenMenu = true;
+      this.hiddenLogin = false;
+      this.route.navigate(['inicio']);
+    }
   }
 
 }

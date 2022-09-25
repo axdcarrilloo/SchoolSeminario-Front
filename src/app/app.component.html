@@ -1,3 +1,9 @@
 
-<menu-main></menu-main>
-<router-outlet></router-outlet>
+<div *ngIf="hiddenLogin">
+    <login (logeado)="recibirLogeo($event)" (tipoUsuarioLogeado)="recibirTipoUsuario($event)"></login>
+</div>
+
+<div *ngIf="hiddenMenu">
+    <menu-main [tipoUsuario]="tipoUsuario"></menu-main>
+    <router-outlet></router-outlet>
+</div>
