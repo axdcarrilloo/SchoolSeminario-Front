@@ -11,8 +11,8 @@ import { Constantes } from 'src/app/utils/constantes';
 })
 export class LoginComponent implements OnInit {
 
-  tiposUsuario: string[] = ["Estudiante","Profesor","Admin"];
-  tipoUsuarioSeleccionado: string = "";
+  tiposUsuario: string[] = Constantes.tiposUsuario;
+  tipoUsuarioSeleccionado: string = "Seleccionar";
   usuario: string = "";
   contrasenna: string = "";
   @Output() logeado = new EventEmitter<Boolean>();
@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
         return Constantes.TIPOUSUARIO_ESTUDIANTE
       case "Profesor":
         return Constantes.TIPOUSUARIO_PROFESOR
+      case "Coordinador":
+        return Constantes.TIPOUSUARIO_COORDINADOR
+      case "Rector":
+        return Constantes.TIPOUSUARIO_RECTOR
     }
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NombrePeriodos } from 'src/app/utils/nombre-periodos';
+import { Constantes } from 'src/app/utils/constantes';
 
 @Component({
   selector: 'registrar-periodo',
@@ -9,7 +8,7 @@ import { NombrePeriodos } from 'src/app/utils/nombre-periodos';
 })
 export class RegistrarPeriodoComponent implements OnInit {
 
-  nombresPeriodo: string[] = NombrePeriodos.nombres;
+  nombresPeriodo: string[] = Constantes.nombresPeriodos;
 
   constructor() { }
 
