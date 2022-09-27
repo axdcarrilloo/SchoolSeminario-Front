@@ -2,33 +2,52 @@
 <!-- <menu-main></menu-main> -->
 
 <div id="divPrincipal">
-
   <div class="row g-3 divBusqueda">
     <div class="col-auto">
-      <input type="text" id="campoBusqueda" class="form-control" placeholder="Buscar periodo">
+      <filtrado [filtrosDe]="'Periodo'"></filtrado>
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Buscar periodo">
     </div>
     <div class="col-auto">
       <button type="button" class="btn btn-info"> Buscar </button>
     </div>
   </div>
 
-  <table class="table">
+  <table class="table tbTablaConsulta">
     <thead>
       <tr>
+        <th hidden="true" scope="col">Id</th>
         <th scope="col">Codigo</th>
         <th scope="col">Periodo</th>
         <th scope="col">Fecha inicio</th>
         <th scope="col">Fecha fin</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td hidden="true">1</td>
+        <td>Mark</td>
         <td>Mark</td>
         <td>Otto</td>
         <td>@mdo</td>
-        <td>@mdo</td>
+        <td>
+          <a data-bs-toggle="modal" data-bs-target="#modalModificar">
+            <img src="../../../../assets/icons/modificar.png" id="imgModificar" title="Modificar" alt="Bootstrap" width="28" height="28">
+          </a>
+          <a data-bs-toggle="modal" data-bs-target="#modalEliminar">
+            <img src="../../../../assets/icons/eliminar.png" id="imgEliminar" title="Eliminar" alt="Bootstrap" width="26" height="28">
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
 
+<div class="modal fade" id="modalModificar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <modal-modificar-periodo></modal-modificar-periodo>
+</div>
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <modal-eliminar [objetoEliminar]="objetoEliminar"></modal-eliminar>
 </div>

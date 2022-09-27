@@ -9,14 +9,16 @@ import { ConsultarPeriodoComponent } from './periodo/consultar-periodo/consultar
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegistrarPeriodoComponent } from './periodo/registrar-periodo/registrar-periodo.component';
+import { ModalModificarPeriodoComponent } from './periodo/modal-modificar-periodo/modal-modificar-periodo.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     InicioComponent, MenuMainComponent, ConsultarPeriodoComponent, LoginComponent, 
-    RegistrarPeriodoComponent
+    RegistrarPeriodoComponent, ModalModificarPeriodoComponent
   ],
   imports: [
-    RoutingModule, CommonModule, FormsModule, ReactiveFormsModule,
+    RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
     MenuMainComponent, LoginComponent

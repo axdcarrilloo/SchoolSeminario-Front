@@ -11,7 +11,7 @@ import { Constantes } from 'src/app/utils/constantes';
 })
 export class LoginComponent implements OnInit {
 
-  tiposUsuario: string[] = Constantes.tiposUsuario;
+  tiposUsuario: string[] = Constantes.TIPOS_USUARIO;
   tipoUsuarioSeleccionado: string = "Seleccionar";
   usuario: string = "";
   contrasenna: string = "";

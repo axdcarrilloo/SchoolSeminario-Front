@@ -1,0 +1,7 @@
+.divPrincipal {
+    background-color: #DEEEF7;
+}
+
+div > .lbEliminar {
+    margin-left: 15px;
+}

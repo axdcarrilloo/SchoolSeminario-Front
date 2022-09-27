@@ -1,0 +1,23 @@
+
+.divPrincipal {
+    background-color: #DEEEF7;
+}
+
+.divCampos {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #DEEEF7;
+}
+
+div > .labelModificar {
+    margin-top: 5px;
+}
+
+div > .inputLogin {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

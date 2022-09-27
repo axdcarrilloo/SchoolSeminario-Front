@@ -8,6 +8,23 @@
     width: max-content;
     margin-left: auto;
     margin-right: 1px;
+    display: flexbox;
+}
+
+.tbTablaConsulta {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a > #imgModificar {
+    cursor: pointer;
+}
+
+a > #imgEliminar {
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 div > table {

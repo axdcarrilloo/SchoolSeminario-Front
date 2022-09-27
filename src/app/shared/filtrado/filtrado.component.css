@@ -1,0 +1,11 @@
+
+#divPrincipal {
+    width: min-content;
+    display: flex;
+}
+
+#sltFiltros {
+    margin-left: 5px;
+    width: 120px;
+    text-align: center;
+}

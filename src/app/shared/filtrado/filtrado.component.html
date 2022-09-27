@@ -1,0 +1,8 @@
+
+<!-- Se necesita retornar con un @Output el filtro seleccionado -->
+<div id="divPrincipal">
+    <label for="sltFiltros" class="labelLogin"> Filtros: </label>
+    <select id="sltFiltros" [(ngModel)]="filtroSeleccionado" class="form-control">
+        <option [value]="item" *ngFor="let item of cargarFiltros()">{{item}}</option>
+    </select>
+</div>

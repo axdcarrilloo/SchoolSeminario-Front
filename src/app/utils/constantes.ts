@@ -9,6 +9,9 @@ export class Constantes {
     static TIPOUSUARIO_RECTOR = "04";
 
     // Nombres de listas desplegables
-    static tiposUsuario: string[] = ["Seleccionar","Estudiante","Profesor","Coordinador","Rector","Admin"];
-    static nombresPeriodos: string[] = ["Seleccionar","1er","2do","3er","4to","5to"];
+    static TIPOS_USUARIO: string[] = ["Seleccionar","Estudiante","Profesor","Coordinador","Rector","Admin"];
+    static NOMBRES_PERIODO: string[] = ["Seleccionar","1er","2do","3er","4to","5to"];
+    static FILTROS_PERIODO: string[] = ["Seleccionar","Codigo","Periodo"];
+    static FILTROS_CURSO: string[] = ["Seleccionar","Codigo","Curso"];
+
 }
