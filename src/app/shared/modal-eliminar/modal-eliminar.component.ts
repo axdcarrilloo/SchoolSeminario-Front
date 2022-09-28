@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'modal-eliminar',
@@ -8,10 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ModalEliminarComponent implements OnInit {
 
   @Input() objetoEliminar: string = "";
+  @Output() eliminado = new EventEmitter<Boolean>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  eliminar(): void {
+    this.opcEliminar(true);
+  }
+
+  opcEliminar(eliminado: Boolean) {
+    this.eliminado.emit(eliminado);
   }
 
 }

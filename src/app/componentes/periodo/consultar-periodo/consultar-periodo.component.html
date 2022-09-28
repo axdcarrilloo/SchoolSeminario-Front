@@ -1,10 +1,8 @@
 
-<!-- <menu-main></menu-main> -->
-
 <div id="divPrincipal">
   <div class="row g-3 divBusqueda">
     <div class="col-auto">
-      <filtrado [filtrosDe]="'Periodo'"></filtrado>
+      <filtrado [filtrosDe]="'Periodo'" (filtroSeleccionadoResponder)="filtrarPor($event)"></filtrado>
     </div>
     <div class="col-auto">
       <input type="text" class="form-control" placeholder="Buscar periodo">
@@ -49,5 +47,5 @@
   <modal-modificar-periodo></modal-modificar-periodo>
 </div>
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <modal-eliminar [objetoEliminar]="objetoEliminar"></modal-eliminar>
+  <modal-eliminar [objetoEliminar]="objetoEliminar" (eliminado)="eliminar($event)"></modal-eliminar>
 </div>

@@ -15,4 +15,12 @@ export class ConsultarPeriodoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  filtrarPor(filtrado: string): void {
+    console.log("Se filtrara por " + filtrado);
+  }
+
+  eliminar(eliminado: Boolean): void {
+    console.log("Se elimina? " + eliminado);
+  }
+
 }

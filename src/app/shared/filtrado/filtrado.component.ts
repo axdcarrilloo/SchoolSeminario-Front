@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Constantes } from 'src/app/utils/constantes';
 
 @Component({
@@ -10,6 +10,7 @@ export class FiltradoComponent implements OnInit {
 
   @Input() filtrosDe: string = "";
   filtroSeleccionado: string = "Seleccionar";
+  @Output() filtroSeleccionadoResponder = new EventEmitter<string>();
 
   filtrosPeriodo: string[] = Constantes.FILTROS_PERIODO;
   filtrosCurso: string[] = Constantes.FILTROS_CURSO;
@@ -17,6 +18,10 @@ export class FiltradoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  devolverFiltroSeleccionado(filtro: string): void {
+    this.filtroSeleccionadoResponder.emit(filtro);
   }
 
   cargarFiltros(): string[] {

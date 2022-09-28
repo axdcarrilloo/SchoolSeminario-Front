@@ -15,7 +15,7 @@
                 <input type="text" id="usuiario" [(ngModel)]="usuario" class="form-control inputLogin" placeholder="Usuario"/>
             
                 <label for="contrasenna" class="labelLogin"> Contraseña </label>
-                <input type="password" id="contrasenna" (keypress)="entrar()" [(ngModel)]="contrasenna" class="form-control inputLogin" placeholder="Contraseña"/>
+                <input type="password" id="contrasenna" (keydown.enter)="entrar()" [(ngModel)]="contrasenna" class="form-control inputLogin" placeholder="Contraseña"/>
     
                 <a href="" class="aOlvidoContraseña"> Olvido su contraeña? </a><br/>
 
@@ -24,7 +24,3 @@
         </div>
     </div>
 </div>
-<!-- [(ngModel)]="tipoUsuarioSeleccionado" 
-    [formGroup]="usuarioLoginForm"
-    formControlName="contrasenna"
--->
