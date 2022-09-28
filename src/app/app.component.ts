@@ -18,16 +18,14 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  recibirTipoUsuario(tipoUsuario: string):void {
-    this.tipoUsuario = tipoUsuario;
-  }
-
-  recibirLogeo(logeado: Boolean): void {
+  recibirDatosLogin(datos: any[]): void {
+    const logeado = datos[0];
     if(logeado) {
       this.hiddenMenu = true;
       this.hiddenLogin = false;
       this.route.navigate(['inicio']);
     }
+    this.tipoUsuario = datos[1];
   }
 
 }

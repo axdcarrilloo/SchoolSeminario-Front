@@ -1,6 +1,10 @@
 
 <div *ngIf="hiddenLogin">
-    <login (logeado)="recibirLogeo($event)" (tipoUsuarioLogeado)="recibirTipoUsuario($event)"></login>
+    <login (datos)="recibirDatosLogin($event)"></login>
+
+    <div class="modal fade" id="modalAlerta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <modal-alertas></modal-alertas>
+    </div>
 </div>
 
 <div *ngIf="hiddenMenu">

@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
   tipoUsuarioSeleccionado: string = "Seleccionar";
   usuario: string = "";
   contrasenna: string = "";
-  @Output() logeado = new EventEmitter<Boolean>();
-  @Output() tipoUsuarioLogeado = new EventEmitter<string>();
+  @Output() datos = new EventEmitter<any[]>();
 
   constructor() {
   }
@@ -24,12 +23,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  obtenerTipoUsuario(usuario: string) {
-    this.tipoUsuarioLogeado.emit(usuario);
-  }
-
-  logeoRealizado(validarLogeo: Boolean) {
-    this.logeado.emit(validarLogeo);
+  responderDatos(datos: any[]) {
+    this.datos.emit(datos);
   }
 
   validarTipoUsuario(tipoUsuario:String): any {
@@ -58,10 +53,12 @@ export class LoginComponent implements OnInit {
   entrar():void {
     // console.log("El seleccionado fue " + this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
     if(this.validarUsuario()) {
-      this.logeoRealizado(true);
-      this.obtenerTipoUsuario(this.validarTipoUsuario(this.tipoUsuarioSeleccionado));
+      const datos = [true, this.validarTipoUsuario(this.tipoUsuarioSeleccionado)];
+      this.responderDatos(datos);
     } else {
       console.log("Usuario errado");
+      const datos = ["fallido", "Usuario fallido", "verifique su usuario y contraseña"];
+      
     }
   }
 }
