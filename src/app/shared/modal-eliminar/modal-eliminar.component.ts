@@ -10,17 +10,13 @@ export class ModalEliminarComponent implements OnInit {
   @Input() objetoEliminar: string = "";
   @Output() eliminado = new EventEmitter<Boolean>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
   eliminar(): void {
-    this.opcEliminar(true);
-  }
-
-  opcEliminar(eliminado: Boolean) {
-    this.eliminado.emit(eliminado);
+    this.eliminado.emit(true);
   }
 
 }

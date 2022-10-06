@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'consultar-periodo',
@@ -7,20 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultarPeriodoComponent implements OnInit {
 
-  objetoEliminar: string = "el Periodo"
+  objetoEliminar: string = "el Periodo";
 
-  constructor() { 
+  @ViewChild('modalEliminar') modalEliminar = null;
+  private modal: any;
+
+  constructor(private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
   }
+
+  openModal(): void {
+    this.modal = this.modalService.open(this.modalEliminar);
+}
 
   filtrarPor(filtrado: string): void {
     console.log("Se filtrara por " + filtrado);
   }
 
   eliminar(eliminado: Boolean): void {
-    console.log("Se elimina? " + eliminado);
+    this.openModal();
+    if(eliminado) {
+      console.log("Se elimino");
+      this.modal.close();
+    }
   }
 
 }

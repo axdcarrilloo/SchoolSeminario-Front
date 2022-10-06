@@ -21,7 +21,7 @@ import { SharedModule } from '../shared/shared.module';
     RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent
+    MenuMainComponent, LoginComponent, ConsultarPeriodoComponent
   ],
   providers: []
 })
