@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit } from '@angular/core';
+
+declare var window: any;
 
 @Component({
   selector: 'consultar-periodo',
@@ -9,17 +10,33 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ConsultarPeriodoComponent implements OnInit {
 
   objetoEliminar: string = "el Periodo";
-  @ViewChild('modalEliminar') modalEliminar = null;
-  private modal: any;
+  private modalConfirmarEliminacion: any;
 
-  constructor(private modalService: NgbModal) {
+  dataEliminacionExitosa: string[] = ["exito", "Eliminacion Exitosa", "Eliminacion realizada con exito...!"];
+  private modalEliminacionExitosa: any;
+
+  constructor() {
   }
 
   ngOnInit(): void {
+    this.cargarModals();
   }
 
-  abrirModalConfirmarEliminacion(): void {
-    this.modal = this.modalService.open(this.modalEliminar);
+  cerrarModalConfirmarEliminacion(): void {
+    this.modalConfirmarEliminacion.hide();
+  }
+
+  cargarModals(): void {
+    this.modalConfirmarEliminacion = new window.bootstrap.Modal(
+      document.getElementById("modalEliminar")
+    );
+    this.modalEliminacionExitosa = new window.bootstrap.Modal(
+      document.getElementById("modalEliminacionExitosa")
+    );
+  }
+
+  abrirModalEliminacionExitosa(): void {
+    this.modalEliminacionExitosa.show();
   }
 
   filtrarPor(filtrado: string): void {
@@ -27,10 +44,10 @@ export class ConsultarPeriodoComponent implements OnInit {
   }
 
   eliminar(eliminado: Boolean): void {
-    this.abrirModalConfirmarEliminacion();
     if(eliminado) {
+      this.cerrarModalConfirmarEliminacion();
+      this.abrirModalEliminacionExitosa();
       console.log("Se elimino");
-      this.modal.close();
     }
   }
 

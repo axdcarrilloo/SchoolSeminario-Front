@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'modal-eliminar',
@@ -11,7 +10,8 @@ export class ModalEliminarComponent implements OnInit {
   @Input() objetoEliminar: string = "";
   @Output() eliminado = new EventEmitter<Boolean>();
 
-  constructor(private modalService: NgbModal) {}
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

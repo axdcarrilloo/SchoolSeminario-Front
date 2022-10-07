@@ -1,7 +1,12 @@
 .divPrincipal {
-    background-color: #DEEEF7;
+    background-color: #F9CCCC;
+}
+
+#staticBackdropLabel {
+    font-weight: bold;
 }
 
 div > .lbEliminar {
     margin-left: 15px;
+    font-weight: 480;
 }

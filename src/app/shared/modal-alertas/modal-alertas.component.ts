@@ -7,12 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ModalAlertasComponent implements OnInit {
 
-  @Input() datosInput: string[] = [];
-  tipoAlerta: string = this.datosInput[0];
-  titulo: string = this.datosInput[1];
-  mensaje: string = this.datosInput[2];
+  @Input() datosInputs: string[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
