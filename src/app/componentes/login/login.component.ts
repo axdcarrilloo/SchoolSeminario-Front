@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { Constantes } from 'src/app/utils/constantes';
+
+declare var window : any;
 
 @Component({
   selector: 'login',
@@ -17,10 +17,24 @@ export class LoginComponent implements OnInit {
   contrasenna: string = "";
   @Output() datos = new EventEmitter<any[]>();
 
+  loginFallido: string[] = ["modal-content divPrincipalFallido", "Usuario fallido", "fallido", "Verifique su usuario y contraseña"];
+  modalLoginFallido: any;
+
   constructor() {
   }
   
   ngOnInit(): void {
+    this.cargarModals();
+  }
+
+  abrirModalLoginFallido(): void {
+    this.modalLoginFallido.show();
+  }
+
+  cargarModals(): void {
+    this.modalLoginFallido = new window.bootstrap.Modal(
+      document.getElementById("modalLoginFallido")
+    );
   }
 
   responderDatos(datos: any[]) {
@@ -56,9 +70,7 @@ export class LoginComponent implements OnInit {
       const datos = [true, this.validarTipoUsuario(this.tipoUsuarioSeleccionado)];
       this.responderDatos(datos);
     } else {
-      console.log("Usuario errado");
-      const datos = ["fallido", "Usuario fallido", "verifique su usuario y contraseña"];
-      
+      this.abrirModalLoginFallido();
     }
   }
 }

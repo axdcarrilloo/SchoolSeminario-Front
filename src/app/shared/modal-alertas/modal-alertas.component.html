@@ -1,16 +1,16 @@
 
 <!-- Modal -->
 <div class="modal-dialog">
-    <div class="modal-content divPrincipal">
+    <div [ngClass]="datosInputs[0]">
         <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel"> {{ datosInputs[1] }} </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <img src="../../../assets/icons/exito.png" *ngIf="datosInputs[0]=='exito'" alt="Bootstrap" width="30" height="32">
-            <img src="../../../assets/icons/fallido.png" *ngIf="datosInputs[0]=='fallido'" alt="Bootstrap" width="30" height="32">
+            <img src="../../../assets/icons/exito.png" *ngIf="datosInputs[2]=='exito'" alt="Bootstrap" width="30" height="32">
+            <img src="../../../assets/icons/fallido.png" *ngIf="datosInputs[2]=='fallido'" alt="Bootstrap" width="30" height="32">
             <label class="lbMensaje">
-                {{ datosInputs[2] }}
+                {{ datosInputs[3] }}
             </label>
         </div>
         <div class="modal-footer">

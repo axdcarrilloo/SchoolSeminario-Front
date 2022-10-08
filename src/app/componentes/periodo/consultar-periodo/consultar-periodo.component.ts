@@ -12,7 +12,7 @@ export class ConsultarPeriodoComponent implements OnInit {
   objetoEliminar: string = "el Periodo";
   private modalConfirmarEliminacion: any;
 
-  dataEliminacionExitosa: string[] = ["exito", "Eliminacion Exitosa", "Eliminacion realizada con exito...!"];
+  dataEliminacionExitosa: string[] = ["modal-content divPrincipalExitoso", "Eliminacion Exitosa", "exito", "Eliminacion realizada con exito...!"];
   private modalEliminacionExitosa: any;
 
   constructor() {

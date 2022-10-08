@@ -1,6 +1,10 @@
 
-.divPrincipal {
+.divPrincipalExitoso {
     background-color: #DEEEF7;
+}
+
+.divPrincipalFallido {
+    background-color: #F9CCCC;
 }
 
 #staticBackdropLabel {
