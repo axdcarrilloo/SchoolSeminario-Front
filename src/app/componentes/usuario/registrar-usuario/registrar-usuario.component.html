@@ -1,0 +1,36 @@
+
+<div class="divPrincipal">
+    <form class="formularioRegistrar">
+        <div class="divCampos">
+            <div class="divCampos1">
+                <label for="tipoUsuario" class="labelLogin"> Tipo de Usuario </label>
+                <select id="tipoUsuario" class="form-control selectRegistrar">
+                    <option [value]="tipo" *ngFor="let tipo of tiposUsuario">{{tipo}}</option>
+                </select>
+
+                <input type="number" class="form-control inputLogin" placeholder="Documento"/>
+
+                <input type="text"  class="form-control inputLogin" placeholder="Apellidos"/>
+
+                <input type="text" class="form-control inputLogin" placeholder="Direccion"/>
+                
+                <input type="text" class="form-control inputLogin" placeholder="Contraseña"/>
+            </div>
+            <div  class="divCampos1">
+                <label for="tipoDocumento" class="labelLogin"> Tipo de Documento </label>
+                <select id="tipoDocumento" class="form-control selectRegistrar">
+                    <option [value]="tipo" *ngFor="let tipo of tiposDocumento">{{tipo}}</option>
+                </select>
+
+                <input type="text" class="form-control inputLogin" placeholder="Nombres"/>
+
+                <input type="number" class="form-control inputLogin" placeholder="Celular"/>
+
+                <input type="number" class="form-control inputLogin" placeholder="Usuario"/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btnRegistrar"> Registrar </button>
+    </form>
+</div>

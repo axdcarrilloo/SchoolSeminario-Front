@@ -1,0 +1,33 @@
+
+#divPrincipal {
+    margin: 5px;
+}
+
+.divBusqueda {
+    margin: 5px;
+    width: max-content;
+    margin-left: auto;
+    margin-right: 1px;
+    display: flexbox;
+}
+
+.tbTablaConsulta {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a > #imgModificar {
+    cursor: pointer;
+}
+
+a > #imgEliminar {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+div > table {
+    background-color: #DBE2F1;
+    border-radius: 10px;
+}

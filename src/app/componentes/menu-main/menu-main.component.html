@@ -22,7 +22,7 @@
                 <a class="dropdown-item" href="#"> Curso </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03'">
-                <a class="dropdown-item" href="#"> Usuario </a>
+                <a class="dropdown-item" routerLink="registrar-usuario"> Usuario </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#"> Asignatura </a>
@@ -44,7 +44,7 @@
                 <a class="dropdown-item" href="#"> Curso </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03' || tipoUsuario=='04'">
-                <a class="dropdown-item" href="#"> Usuario </a>
+                <a class="dropdown-item" routerLink="consultar-usuario"> Usuario </a>
               </li>
               <li>
                 <a class="dropdown-item" href="#"> Asignatura </a>

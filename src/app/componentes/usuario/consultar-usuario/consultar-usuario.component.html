@@ -1,0 +1,52 @@
+
+<div id="divPrincipal">
+    <div class="row g-3 divBusqueda">
+      <div class="col-auto">
+        <filtrado [filtrosDe]="'Usuario'" (filtroSeleccionadoResponder)="filtrarPor($event)"></filtrado>
+      </div>
+      <div class="col-auto">
+        <input type="text" class="form-control" placeholder="Buscar periodo">
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-info"> Buscar </button>
+      </div>
+    </div>
+  
+    <table class="table tbTablaConsulta">
+        <thead>
+            <tr>
+              <th hidden="true" scope="col">Id</th>
+              <th scope="col">Codigo</th>
+              <th scope="col">Tipo Documento</th>
+              <th scope="col">Documento</th>
+              <th scope="col">Nombres</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Celular</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td hidden="true">1</td>
+              <td>USU0001</td>
+              <td>Cedula Ciudadania</td>
+              <td>12345678</td>
+              <td>Ponce</td>
+              <td>De Leon</td>
+              <td>399123432</td>
+              <td>Mz40 Cra34-12</td>
+              <td>podema</td>
+              <td>
+                <a data-bs-toggle="modal" data-bs-target="#modalModificar">
+                  <img src="../../../../assets/icons/modificar.png" id="imgModificar" title="Modificar" alt="Bootstrap" width="28" height="28">
+                </a>
+                <a data-bs-toggle="modal" data-bs-target="#modalEliminar">
+                  <img src="../../../../assets/icons/eliminar.png" id="imgEliminar" title="Eliminar" alt="Bootstrap" width="26" height="28">
+                </a>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

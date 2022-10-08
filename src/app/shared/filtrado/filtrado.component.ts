@@ -14,6 +14,7 @@ export class FiltradoComponent implements OnInit {
 
   filtrosPeriodo: string[] = Constantes.FILTROS_PERIODO;
   filtrosCurso: string[] = Constantes.FILTROS_CURSO;
+  filtrosUsuario: string[] = Constantes.FILTROS_USUARIO;
 
   constructor() { }
 
@@ -31,6 +32,8 @@ export class FiltradoComponent implements OnInit {
         return this.filtrosPeriodo;
       case "Curso":
         return this.filtrosCurso;
+      case "Usuario":
+        return this.filtrosUsuario;
       default:
         return filtroVacio;
     }
