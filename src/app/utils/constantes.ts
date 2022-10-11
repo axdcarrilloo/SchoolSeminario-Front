@@ -17,4 +17,8 @@ export class Constantes {
     static FILTROS_PERIODO: string[] = ["Seleccionar","Codigo","Periodo"];
     static FILTROS_CURSO: string[] = ["Seleccionar","Codigo","Curso"];
     static FILTROS_USUARIO: string[] = ["Seleccionar","Codigo","Documento","Nombres","Apellidos","Celular"];
+
+    static ELIMINACION_EXITOSA: string[] = ["modal-content divPrincipalExitoso", "Eliminacion Exitosa", "exito", "Eliminacion realizada con exito...!"];
+    static MODIFICACION_EXITOSA: string[] = ["modal-content divPrincipalExitoso", "Modificacion Exitosa", "exito", "Modificacion realizada con exito...!"];
+
 }

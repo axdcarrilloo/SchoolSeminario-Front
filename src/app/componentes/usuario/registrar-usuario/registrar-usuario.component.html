@@ -1,36 +1,43 @@
 
-<div class="divPrincipal">
-    <form class="formularioRegistrar">
+<div [ngClass]="divPrincipal">
+    <form [ngClass]="formulario">
         <div class="divCampos">
-            <div class="divCampos1">
-                <label for="tipoUsuario" class="labelLogin"> Tipo de Usuario </label>
-                <select id="tipoUsuario" class="form-control selectRegistrar">
-                    <option [value]="tipo" *ngFor="let tipo of tiposUsuario">{{tipo}}</option>
+            <div>
+                <label for="tipoUsuario"> Tipo de Usuario </label>
+                <select id="tipoUsuario" [ngClass]="selects">
+                    <option [value]="tipo" *ngFor="let tipo of tiposUsuario">{{ tipo }}</option>
                 </select>
 
-                <input type="number" class="form-control inputLogin" placeholder="Documento"/>
+                <input type="number" [ngClass]="inputLogin" placeholder="Documento"/>
 
-                <input type="text"  class="form-control inputLogin" placeholder="Apellidos"/>
+                <input type="text"  [ngClass]="inputLogin" placeholder="Apellidos"/>
 
-                <input type="text" class="form-control inputLogin" placeholder="Direccion"/>
+                <input type="text" [ngClass]="inputLogin" placeholder="Direccion"/>
                 
-                <input type="text" class="form-control inputLogin" placeholder="Contraseña"/>
+                <input type="text" [ngClass]="inputLogin" placeholder="Contraseña"/>
             </div>
-            <div  class="divCampos1">
-                <label for="tipoDocumento" class="labelLogin"> Tipo de Documento </label>
-                <select id="tipoDocumento" class="form-control selectRegistrar">
-                    <option [value]="tipo" *ngFor="let tipo of tiposDocumento">{{tipo}}</option>
+            <div>
+                <label for="tipoDocumento"> Tipo de Documento </label>
+                <select id="tipoDocumento" [ngClass]="selects">
+                    <option [value]="tipo" *ngFor="let tipo of tiposDocumento">{{ tipo }}</option>
                 </select>
 
-                <input type="text" class="form-control inputLogin" placeholder="Nombres"/>
+                <input type="text" [ngClass]="inputLogin" placeholder="Nombres"/>
 
-                <input type="number" class="form-control inputLogin" placeholder="Celular"/>
+                <input type="number" [ngClass]="inputLogin" placeholder="Celular"/>
 
-                <input type="number" class="form-control inputLogin" placeholder="Usuario"/>
+                <input type="number" [ngClass]="inputLogin" placeholder="Usuario"/>
                 <br/>
                 <br/>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btnRegistrar"> Registrar </button>
+        <button type="submit" class="btn btn-primary btnRegistrar" *ngIf="tipoRegistro == 'r'"> Registrar </button>
+        <button type="submit" class="btn btn-secondary btnModificar" data-bs-dismiss="modal" *ngIf="tipoRegistro == 'm'"> Cancelar </button>
+        <button type="submit" class="btn btn-primary btnModificar" *ngIf="tipoRegistro == 'm'" (click)="modificar()"> Modificar </button>
     </form>
 </div>
+
+<div class="modal fade" id="modalModificacionExitosa" tabindex="-1" aria-labelledby="modalEliminacionExitosa" aria-hidden="true">
+    <modal-alertas [datosInputs]="dataModificacionExitosa"></modal-alertas>
+</div>
+

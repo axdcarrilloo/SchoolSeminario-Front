@@ -1,5 +1,5 @@
 
-.divPrincipal {
+.divPrincipalRegistrar {
     width: 35%;
     border: solid;
     border-color: #0cafe5;
@@ -24,7 +24,7 @@
     text-align: center;
 }
 
-.inputLogin {
+.inputLoginRegistrar {
     text-align: center;
     margin-top: 10px;
 }
@@ -32,4 +32,38 @@
 .btnRegistrar {
     margin-top: 10px;
     width: 200px;
+}
+
+/* ---------------------------------------------------- Modificar ----------------------------------------------------  */
+
+.divPrincipalModificar {
+    width: 100%;
+    border: solid;
+    border-color: #0cafe5;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2px;
+    background-color: #DEEEF7;
+}
+
+.formularioModificar {
+    text-align: center;
+    padding: 2.5px;
+}
+
+.selectModificar {
+    margin-top: 0.2px;
+    text-align: center;
+}
+
+.inputLoginModificar {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btnModificar {
+    margin-top: 8px;
+    margin-left: 5px;
+    width: 100px;
 }

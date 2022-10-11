@@ -13,17 +13,18 @@ import { ModalModificarPeriodoComponent } from './periodo/modal-modificar-period
 import { SharedModule } from '../shared/shared.module';
 import { RegistrarUsuarioComponent } from './usuario/registrar-usuario/registrar-usuario.component';
 import { ConsultarUsuarioComponent } from './usuario/consultar-usuario/consultar-usuario.component';
+import { ModalModificarUsuarioComponent } from './usuario/modal-modificar-usuario/modal-modificar-usuario.component';
 
 @NgModule({
   declarations: [
     InicioComponent, MenuMainComponent, ConsultarPeriodoComponent, LoginComponent, 
-    RegistrarPeriodoComponent, ModalModificarPeriodoComponent, RegistrarUsuarioComponent, ConsultarUsuarioComponent
+    RegistrarPeriodoComponent, ModalModificarPeriodoComponent, RegistrarUsuarioComponent, ConsultarUsuarioComponent, ModalModificarUsuarioComponent
   ],
   imports: [
     RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent, RegistrarUsuarioComponent
+    MenuMainComponent, LoginComponent, ConsultarUsuarioComponent
   ],
   providers: []
 })
