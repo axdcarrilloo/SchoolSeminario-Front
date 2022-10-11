@@ -10,9 +10,13 @@ declare var window: any;
 })
 export class ConsultarUsuarioComponent implements OnInit {
 
+  modalModificacionExitosa: any;
+  dataModificacionExitosa: string[] = Constantes.MODIFICACION_EXITOSA;
+  
   objetoEliminar: string = "el Usuario";
   dataEliminacionExitosa: string[] = Constantes.ELIMINACION_EXITOSA;
-
+  
+  private modalModificarUsuario: any;
   private modalConfirmarEliminacion: any;
   private modalEliminacionExitosa: any;
 
@@ -22,19 +26,20 @@ export class ConsultarUsuarioComponent implements OnInit {
     this.cargarModals();
   }
 
-  usuarioModificado(validar: Boolean): void {
+  cerrarModalModificarUsuario(validar: Boolean): void {
     if(validar) {
-      console.log("Se modifico el usuario");
-    } else {
-    console.log("No s epudo modificar el usuario");
+      this.modalModificarUsuario.hide();
+      this.modalModificacionExitosa.show();
     }
-  }
-  
-  cerrarModalConfirmarEliminacion(): void {
-    this.modalConfirmarEliminacion.hide();
   }
 
   cargarModals(): void {
+    this.modalModificacionExitosa = new window.bootstrap.Modal(
+      document.getElementById("modalModificacionExitosa")
+    );
+    this.modalModificarUsuario = new window.bootstrap.Modal(
+      document.getElementById("modalModificarUsuario")
+    );
     this.modalConfirmarEliminacion = new window.bootstrap.Modal(
       document.getElementById("modalEliminar")
     );
@@ -47,14 +52,10 @@ export class ConsultarUsuarioComponent implements OnInit {
     console.log("Se filtrara por " + filtrado);
   }
 
-  abrirModalEliminacionExitosa(): void {
-    this.modalEliminacionExitosa.show();
-  }
-
   eliminar(eliminado: Boolean): void {
     if(eliminado) {
-      this.cerrarModalConfirmarEliminacion();
-      this.abrirModalEliminacionExitosa();
+      this.modalConfirmarEliminacion.hide();
+      this.modalEliminacionExitosa.show();
       console.log("Se elimino");
     }
   }

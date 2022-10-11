@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
 import { Constantes } from 'src/app/utils/constantes';
 
 declare var window: any;
@@ -10,9 +12,9 @@ declare var window: any;
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
-  @Output() modificado = new EventEmitter<Boolean>();
-  dataModificacionExitosa: string[] = Constantes.MODIFICACION_EXITOSA;
-  private modalModificacionExitosa: any;
+  usuarioForm: FormGroup;
+
+  @Output() usuarioModificar = new EventEmitter<UsuarioModificar>();
 
   divPrincipal = "divPrincipalRegistrar";
   formulario = "formularioRegistrar";
@@ -26,31 +28,41 @@ export class RegistrarUsuarioComponent implements OnInit {
   tipoDocumentoSeleccionado: string = "Seleccionar";
   tiposDocumento: string[] = Constantes.TIPOS_DOCUMENTOS;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+    this.usuarioForm = this.cargarFormulario();
+  }
 
   ngOnInit(): void {
     this.accionModificar();
-    this.cargarModals();
   }
 
-  cerrarModificacionExitosa(): void {
-    this.modalModificacionExitosa.hide();
+  cargarUsuarioModificar(): void {
+    const caracteres = this.usuarioForm.value.usuario.length;
+    if(this.tipoRegistro == "m" && caracteres > 4) {
+      const usuario = new UsuarioModificar(this.usuarioForm.value.tipoUsuario, this.usuarioForm.value.tipoDocumento, this.usuarioForm.value.numeroDocumento,
+        this.usuarioForm.value.nombres, this.usuarioForm.value.apellidos, this.usuarioForm.value.celular, this.usuarioForm.value.direccion, 
+        this.usuarioForm.value.usuario, this.usuarioForm.value.contrasenna)
+      ;
+      this.usuarioModificar.emit(usuario);
+    }
   }
 
-  abrirModificacionExitosa(): void {
-    this.modalModificacionExitosa.show();
+  cargarFormulario(): FormGroup {
+    return this.fb.group({
+      tipoUsuario: ['',  [Validators.required]],
+      tipoDocumento: ['',  [Validators.required]],
+      numeroDocumento: ['',  [Validators.required]],
+      nombres: ['',  [Validators.required]],
+      apellidos: ['',  [Validators.required]],
+      celular: ['',  [Validators.required]],
+      direccion: ['',  [Validators.required]],
+      usuario: ['',  [Validators.required]],
+      contrasenna: ['',  [Validators.required]]
+    });
   }
 
-  cargarModals(): void {
-    this.modalModificacionExitosa = new window.bootstrap.Modal(
-      document.getElementById("modalModificacionExitosa")
-    );
-  }
-
-  modificar(): void {
-    console.log("Se tira la Modificacion");
-    this.modificado.emit(true);
-    this.abrirModificacionExitosa();
+  registrar(): void {
+    console.log(this.usuarioForm.value);
   }
 
   accionModificar(): void {

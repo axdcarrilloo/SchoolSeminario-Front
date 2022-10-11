@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
+import { Constantes } from 'src/app/utils/constantes';
 
 declare var window: any;
 
@@ -9,27 +11,23 @@ declare var window: any;
 })
 export class ModalModificarUsuarioComponent implements OnInit {
 
-  esteModal: any;
+  @Output() cerrarModalModificar = new EventEmitter<Boolean>();
 
-  @Output() outputMouodificado = new EventEmitter<Boolean>();
+  usuario?: UsuarioModificar;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.cargarModals();
   }
 
-  modificado(validar: Boolean): void {
-    if(validar) {
-      this.esteModal.hide();
-      this.outputMouodificado.emit(true);
-    }
+  cargarUsuarioModificar(usuario: UsuarioModificar): void {
+    this.usuario = usuario;
   }
 
-  cargarModals(): void {
-    this.esteModal = new window.bootstrap.Modal(
-      document.getElementById("modalModificarUsuario")
-    );
+  modificar(): void {
+    console.log("Se envia a modificar el usuario");
+    console.log(this.usuario);
+    this.cerrarModalModificar.emit(true);
   }
 
 }
