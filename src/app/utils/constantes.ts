@@ -20,5 +20,6 @@ export class Constantes {
 
     static ELIMINACION_EXITOSA: string[] = ["modal-content divPrincipalExitoso", "Eliminacion Exitosa", "exito", "Eliminacion realizada con exito...!"];
     static MODIFICACION_EXITOSA: string[] = ["modal-content divPrincipalExitoso", "Modificacion Exitosa", "exito", "Modificacion realizada con exito...!"];
+    static REGISTRO_EXITOSO: string[] = ["modal-content divPrincipalExitoso", "Registro Exitoso", "exito", "Registro realizado con exito...!"];
 
 }

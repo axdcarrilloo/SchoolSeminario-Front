@@ -12,6 +12,9 @@ declare var window: any;
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
+  modalRegistroExitoso: any;
+  dataRegistroExitoso: string[] = Constantes.REGISTRO_EXITOSO;
+
   usuarioForm: FormGroup;
 
   @Output() usuarioModificar = new EventEmitter<UsuarioModificar>();
@@ -34,6 +37,13 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.accionModificar();
+    this.cargarModals();
+  }
+
+  cargarModals(): void {
+    this.modalRegistroExitoso = new window.bootstrap.Modal(
+      document.getElementById("modalRegistroExitoso")
+    );
   }
 
   cargarUsuarioModificar(): void {
@@ -49,8 +59,8 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   cargarFormulario(): FormGroup {
     return this.fb.group({
-      tipoUsuario: ['',  [Validators.required]],
-      tipoDocumento: ['',  [Validators.required]],
+      tipoUsuario: [this.tipoUsuarioSeleccionado,  [Validators.required]],
+      tipoDocumento: [this.tipoDocumentoSeleccionado,  [Validators.required]],
       numeroDocumento: ['',  [Validators.required]],
       nombres: ['',  [Validators.required]],
       apellidos: ['',  [Validators.required]],
@@ -63,6 +73,8 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   registrar(): void {
     console.log(this.usuarioForm.value);
+    this.usuarioForm.reset();
+    this.modalRegistroExitoso.show();
   }
 
   accionModificar(): void {
