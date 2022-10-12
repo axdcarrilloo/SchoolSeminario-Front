@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatosModificar } from 'src/app/dtos/datos-modificar';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
 import { Constantes } from 'src/app/utils/constantes';
 
@@ -24,7 +25,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   inputLogin = "form-control inputLoginRegistrar"; 
   selects = "form-control selectRegistrar"; 
 
-  @Input() tipoRegistro: string = "r";
+  @Input() inputDatos?: DatosModificar;
 
   tipoUsuarioSeleccionado: string = "Seleccionar";
   tiposUsuario: string[] = Constantes.TIPOS_USUARIO;
@@ -48,7 +49,7 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   cargarUsuarioModificar(): void {
     const caracteres = this.usuarioForm.value.usuario.length;
-    if(this.tipoRegistro == "m" && caracteres > 4) {
+    if(this.inputDatos?.tipoRegistro == "m" && caracteres > 4) {
       const usuario = new UsuarioModificar(this.usuarioForm.value.tipoUsuario, this.usuarioForm.value.tipoDocumento, this.usuarioForm.value.numeroDocumento,
         this.usuarioForm.value.nombres, this.usuarioForm.value.apellidos, this.usuarioForm.value.celular, this.usuarioForm.value.direccion, 
         this.usuarioForm.value.usuario, this.usuarioForm.value.contrasenna)
@@ -59,15 +60,15 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   cargarFormulario(): FormGroup {
     return this.fb.group({
-      tipoUsuario: [this.tipoUsuarioSeleccionado,  [Validators.required]],
-      tipoDocumento: [this.tipoDocumentoSeleccionado,  [Validators.required]],
-      numeroDocumento: ['',  [Validators.required]],
-      nombres: ['',  [Validators.required]],
-      apellidos: ['',  [Validators.required]],
-      celular: ['',  [Validators.required]],
-      direccion: ['',  [Validators.required]],
-      usuario: ['',  [Validators.required]],
-      contrasenna: ['',  [Validators.required]]
+      tipoUsuario: [this.inputDatos?.usuario.tipoUsuario,  [Validators.required]],
+      tipoDocumento: [this.inputDatos?.usuario.tipoDocumento,  [Validators.required]],
+      numeroDocumento: [this.inputDatos?.usuario.numeroDocumento,  [Validators.required]],
+      nombres: [this.inputDatos?.usuario.nombres,  [Validators.required]],
+      apellidos: [this.inputDatos?.usuario.apellidos,  [Validators.required]],
+      celular: [this.inputDatos?.usuario.celular,  [Validators.required]],
+      direccion: [this.inputDatos?.usuario.direccion,  [Validators.required]],
+      usuario: [this.inputDatos?.usuario.usuario,  [Validators.required]],
+      contrasenna: [this.inputDatos?.usuario.contrasenna,  [Validators.required]]
     });
   }
 
@@ -78,7 +79,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   }
 
   accionModificar(): void {
-    if(this.tipoRegistro == "m") {
+    if(this.inputDatos?.tipoRegistro == "m") {
       this.divPrincipal = "divPrincipalModificar";
       this.formulario = "formularioModificar";
       this.inputLogin = "form-control inputLoginModificar"; 

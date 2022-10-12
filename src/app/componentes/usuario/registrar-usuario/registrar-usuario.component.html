@@ -14,7 +14,7 @@
 
                 <input type="text" [ngClass]="inputLogin" formControlName="direccion" placeholder="Direccion"/>
                 
-                <input type="text" [ngClass]="inputLogin" formControlName="contrasenna"  *ngIf="tipoRegistro == 'r'" placeholder="Contraseña"/>
+                <input type="text" [ngClass]="inputLogin" formControlName="contrasenna"  *ngIf="inputDatos?.tipoRegistro == 'r'" placeholder="Contraseña"/>
             </div>
             <div>
                 <label for="tipoDocumento"> Tipo de Documento </label>
@@ -27,11 +27,11 @@
                 <input type="tel" [ngClass]="inputLogin" formControlName="celular" placeholder="Celular"/>
 
                 <input type="text" [ngClass]="inputLogin" formControlName="usuario" (ngModelChange)="cargarUsuarioModificar()" placeholder="Usuario"/>
-                <br  *ngIf="tipoRegistro == 'r'"/>
-                <br  *ngIf="tipoRegistro == 'r'"/>
+                <br  *ngIf="inputDatos?.tipoRegistro == 'r'"/>
+                <br  *ngIf="inputDatos?.tipoRegistro == 'r'"/>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btnRegistrar" *ngIf="tipoRegistro == 'r'"> Registrar </button>
+        <button type="submit" class="btn btn-primary btnRegistrar" *ngIf="inputDatos?.tipoRegistro == 'r'"> Registrar </button>
     </form>
 </div>
 

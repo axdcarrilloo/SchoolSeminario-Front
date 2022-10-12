@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DatosModificar } from 'src/app/dtos/datos-modificar';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
-import { Constantes } from 'src/app/utils/constantes';
 
 declare var window: any;
 
@@ -12,10 +12,13 @@ declare var window: any;
 export class ModalModificarUsuarioComponent implements OnInit {
 
   @Output() cerrarModalModificar = new EventEmitter<Boolean>();
+  @Input() usuario = new UsuarioModificar("", "", "", "", "", "", "", "", "",);
 
-  usuario?: UsuarioModificar;
+  datosModificar = new DatosModificar("m", this.usuario);
 
-  constructor() { }
+  constructor() {
+    console.log(this.usuario);
+  }
 
   ngOnInit(): void {
   }

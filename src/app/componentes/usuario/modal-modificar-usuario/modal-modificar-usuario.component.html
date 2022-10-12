@@ -7,7 +7,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <registrar-usuario [tipoRegistro]="'m'" (usuarioModificar)="cargarUsuarioModificar($event)"></registrar-usuario>
+            <registrar-usuario [inputDatos]="datosModificar" (usuarioModificar)="cargarUsuarioModificar($event)"></registrar-usuario>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-secondary btnModificar" data-bs-dismiss="modal"> Cancelar </button>

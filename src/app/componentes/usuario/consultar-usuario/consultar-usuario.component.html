@@ -39,7 +39,7 @@
               <td>Mz40 Cra34-12</td>
               <td>podema</td>
               <td>
-                <a data-bs-toggle="modal" data-bs-target="#modalModificarUsuario">
+                <a data-bs-toggle="modal" data-bs-target="#modalModificarUsuario" (click)="cargarUsuarioModificar()">
                   <img src="../../../../assets/icons/modificar.png" id="imgModificar" title="Modificar" alt="Bootstrap" width="28" height="28">
                 </a>
                 <a data-bs-toggle="modal" data-bs-target="#modalEliminar">
@@ -56,7 +56,7 @@
 </div>
 
 <div class="modal fade" id="modalModificarUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Modal para modificar usuario" aria-hidden="true">
-  <modal-modificar-usuario (cerrarModalModificar)="cerrarModalModificarUsuario($event)"></modal-modificar-usuario>
+  <modal-modificar-usuario [usuario]="usuarioModificar" (cerrarModalModificar)="cerrarModalModificarUsuario($event)"></modal-modificar-usuario>
 </div>
 
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modal para la confirmacion de la eliminacion" aria-hidden="true">
