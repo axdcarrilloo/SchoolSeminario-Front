@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatosModificar } from 'src/app/dtos/datos-modificar';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
@@ -9,7 +9,8 @@ declare var window: any;
 @Component({
   selector: 'registrar-usuario',
   templateUrl: './registrar-usuario.component.html',
-  styleUrls: ['./registrar-usuario.component.css']
+  styleUrls: ['./registrar-usuario.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistrarUsuarioComponent implements OnInit {
 

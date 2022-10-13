@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosModificar } from 'src/app/dtos/datos-modificar';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
 import { Constantes } from 'src/app/utils/constantes';
 
@@ -11,7 +12,8 @@ declare var window: any;
 })
 export class ConsultarUsuarioComponent implements OnInit {
 
-  usuarioModificar: UsuarioModificar = new UsuarioModificar("", "", "", "", "", "", "", "", "",);
+  datosModificar = new DatosModificar("m", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
+  usuarioModificar: any;
 
   modalModificacionExitosa: any;
   dataModificacionExitosa: string[] = Constantes.MODIFICACION_EXITOSA;
@@ -27,11 +29,6 @@ export class ConsultarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarModals();
-  }
-
-  cargarUsuarioModificar(): void {
-    const usuario = new UsuarioModificar("01", "02", "1047741258", "Ponce", "De Leon", "399123432", "Mz40 Cra34-12", "podema", "podema");
-    this.usuarioModificar = usuario;
   }
 
   cerrarModalModificarUsuario(validar: Boolean): void {
