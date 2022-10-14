@@ -12,8 +12,9 @@ declare var window: any;
 })
 export class ConsultarUsuarioComponent implements OnInit {
 
-  datosModificar = new DatosModificar("m", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
-  usuarioModificar: any;
+  // datosModificar = new DatosModificar("", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
+  datosModificar: any;
+  usuarioModificar?: UsuarioModificar;
 
   modalModificacionExitosa: any;
   dataModificacionExitosa: string[] = Constantes.MODIFICACION_EXITOSA;
@@ -29,6 +30,12 @@ export class ConsultarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarModals();
+  }
+
+  cargarDatosModificar(): void {
+    const usuario = new UsuarioModificar("Estudiante", "Tarjeta Identidad", "1098765", "Juan", "Omaña", "311983412", "Mz 56-12", "juom", "juom123");
+
+    this.datosModificar = new DatosModificar("m", usuario);
   }
 
   cerrarModalModificarUsuario(validar: Boolean): void {

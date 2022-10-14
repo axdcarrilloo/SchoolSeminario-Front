@@ -6,8 +6,8 @@
             <h5 class="modal-title" id="staticBackdropLabel"> Modificar Periodo </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <registrar-usuario [inputDatos]="datosModificar"></registrar-usuario>
+        <div *ngIf="datosModificar" class="modal-body">
+            <registrar-usuario [datosModificar]="datosModificar" (usuarioModificar)="cargarUsuarioModificado($event)"></registrar-usuario>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-secondary btnModificar" data-bs-dismiss="modal"> Cancelar </button>

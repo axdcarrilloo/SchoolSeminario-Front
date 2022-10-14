@@ -24,7 +24,7 @@ import { ModalModificarUsuarioComponent } from './usuario/modal-modificar-usuari
     RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent, ConsultarUsuarioComponent, RegistrarUsuarioComponent
+    MenuMainComponent, LoginComponent
   ],
   providers: []
 })

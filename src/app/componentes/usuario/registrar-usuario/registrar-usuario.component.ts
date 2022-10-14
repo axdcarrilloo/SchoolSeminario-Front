@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DatosModificar } from 'src/app/dtos/datos-modificar';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
 import { Constantes } from 'src/app/utils/constantes';
@@ -26,20 +27,25 @@ export class RegistrarUsuarioComponent implements OnInit {
   inputLogin = "form-control inputLoginRegistrar"; 
   selects = "form-control selectRegistrar"; 
 
-  @Input() inputDatos?: DatosModificar;
+  @Input() datosModificar?: DatosModificar;
 
   tipoUsuarioSeleccionado: string = "Seleccionar";
   tiposUsuario: string[] = Constantes.TIPOS_USUARIO;
   tipoDocumentoSeleccionado: string = "Seleccionar";
   tiposDocumento: string[] = Constantes.TIPOS_DOCUMENTOS;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private route: Router) {
     this.usuarioForm = this.cargarFormulario();
   }
+
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.datosModificar = changes['datosModificar'].currentValue;
+  // }
 
   ngOnInit(): void {
     this.accionModificar();
     this.cargarModals();
+    this.usuarioForm = this.cargarFormulario();
   }
 
   cargarModals(): void {
@@ -50,7 +56,7 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   cargarUsuarioModificar(): void {
     const caracteres = this.usuarioForm.value.usuario.length;
-    if(this.inputDatos?.tipoRegistro == "m" && caracteres > 4) {
+    if(this.datosModificar?.tipoRegistro == "m" && caracteres > 4) {
       const usuario = new UsuarioModificar(this.usuarioForm.value.tipoUsuario, this.usuarioForm.value.tipoDocumento, this.usuarioForm.value.numeroDocumento,
         this.usuarioForm.value.nombres, this.usuarioForm.value.apellidos, this.usuarioForm.value.celular, this.usuarioForm.value.direccion, 
         this.usuarioForm.value.usuario, this.usuarioForm.value.contrasenna)
@@ -61,15 +67,15 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   cargarFormulario(): FormGroup {
     return this.fb.group({
-      tipoUsuario: [this.inputDatos?.usuario.tipoUsuario,  [Validators.required]],
-      tipoDocumento: [this.inputDatos?.usuario.tipoDocumento,  [Validators.required]],
-      numeroDocumento: [this.inputDatos?.usuario.numeroDocumento,  [Validators.required]],
-      nombres: [this.inputDatos?.usuario.nombres,  [Validators.required]],
-      apellidos: [this.inputDatos?.usuario.apellidos,  [Validators.required]],
-      celular: [this.inputDatos?.usuario.celular,  [Validators.required]],
-      direccion: [this.inputDatos?.usuario.direccion,  [Validators.required]],
-      usuario: [this.inputDatos?.usuario.usuario,  [Validators.required]],
-      contrasenna: [this.inputDatos?.usuario.contrasenna,  [Validators.required]]
+      tipoUsuario: [this.datosModificar?.usuario.tipoUsuario,  [Validators.required]],
+      tipoDocumento: [this.datosModificar?.usuario.tipoDocumento,  [Validators.required]],
+      numeroDocumento: [this.datosModificar?.usuario.numeroDocumento,  [Validators.required]],
+      nombres: [this.datosModificar?.usuario.nombres,  [Validators.required]],
+      apellidos: [this.datosModificar?.usuario.apellidos,  [Validators.required]],
+      celular: [this.datosModificar?.usuario.celular,  [Validators.required]],
+      direccion: [this.datosModificar?.usuario.direccion,  [Validators.required]],
+      usuario: [this.datosModificar?.usuario.usuario,  [Validators.required]],
+      contrasenna: [this.datosModificar?.usuario.contrasenna,  [Validators.required]]
     });
   }
 
@@ -80,7 +86,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   }
 
   accionModificar(): void {
-    if(this.inputDatos?.tipoRegistro == "m") {
+    if(this.datosModificar?.tipoRegistro == "m") {
       this.divPrincipal = "divPrincipalModificar";
       this.formulario = "formularioModificar";
       this.inputLogin = "form-control inputLoginModificar"; 
