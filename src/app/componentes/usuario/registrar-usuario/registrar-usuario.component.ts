@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatosModificar } from 'src/app/dtos/datos-modificar';
@@ -27,7 +27,9 @@ export class RegistrarUsuarioComponent implements OnInit {
   inputLogin = "form-control inputLoginRegistrar"; 
   selects = "form-control selectRegistrar"; 
 
-  @Input() datosModificar?: DatosModificar;
+  @Input() datosModificar = new DatosModificar("r", 
+    new UsuarioModificar("", "", "", "", "", "", "", "", ""))
+  ;
 
   tipoUsuarioSeleccionado: string = "Seleccionar";
   tiposUsuario: string[] = Constantes.TIPOS_USUARIO;
