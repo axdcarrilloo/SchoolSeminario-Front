@@ -14,22 +14,21 @@ import { SharedModule } from '../shared/shared.module';
 import { RegistrarUsuarioComponent } from './usuario/registrar-usuario/registrar-usuario.component';
 import { ConsultarUsuarioComponent } from './usuario/consultar-usuario/consultar-usuario.component';
 import { ModalModificarUsuarioComponent } from './usuario/modal-modificar-usuario/modal-modificar-usuario.component';
-import { PeriodoConsultarAsignacionComponent } from './asignaciones/periodo/periodo-consultar-asignacion/periodo-consultar-asignacion.component';
-import { PeriodoRegistrarAsignacionComponent } from './asignaciones/periodo/periodo-registrar-asignacion/periodo-registrar-asignacion.component';
-import { CursoRegistrarAsignacionComponent } from './asignaciones/curso/curso-registrar-asignacion/curso-registrar-asignacion.component';
-import { CursoConsultarAsignacionComponent } from './asignaciones/curso/curso-consultar-asignacion/curso-consultar-asignacion.component';
+import { RegistrarAsignacionesPeriodoComponent } from './asignaciones/periodo/registrar-asignaciones-periodo/registrar-asignaciones-periodo.component';
+import { ConsultarAsignacionesPeriodoComponent } from './asignaciones/periodo/consultar-asignaciones-periodo/consultar-asignaciones-periodo.component';
+import { RegistrarAsignacionesCursoComponent } from './asignaciones/curso/registrar-asignaciones-curso/registrar-asignaciones-curso.component';
+import { ConsultarAsignacionesCursoComponent } from './asignaciones/curso/consultar-asignaciones-curso/consultar-asignaciones-curso.component';
 
 @NgModule({
   declarations: [
     InicioComponent, MenuMainComponent, ConsultarPeriodoComponent, LoginComponent, RegistrarPeriodoComponent, ModalModificarPeriodoComponent, 
-    RegistrarUsuarioComponent, ConsultarUsuarioComponent, ModalModificarUsuarioComponent, PeriodoConsultarAsignacionComponent, 
-    PeriodoRegistrarAsignacionComponent, CursoRegistrarAsignacionComponent, CursoConsultarAsignacionComponent
+    RegistrarUsuarioComponent, ConsultarUsuarioComponent, ModalModificarUsuarioComponent, RegistrarAsignacionesPeriodoComponent, ConsultarAsignacionesPeriodoComponent, RegistrarAsignacionesCursoComponent, ConsultarAsignacionesCursoComponent
   ],
   imports: [
     RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent, ConsultarPeriodoComponent
+    MenuMainComponent, LoginComponent
   ],
   providers: []
 })
