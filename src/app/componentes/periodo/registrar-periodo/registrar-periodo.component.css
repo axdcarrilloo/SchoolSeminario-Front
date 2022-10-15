@@ -12,6 +12,10 @@
     background-color: #DEEEF7;
 }
 
+.formularioRegistrar {
+    text-align: center;
+}
+
 .divCampos {
     text-align: center;
 }
@@ -27,6 +31,6 @@ div > .inputLogin {
     margin-right: auto;
 }
 
-div > .btnRegistrar {
+form > .btnRegistrar {
     margin-top: 10px;
 }

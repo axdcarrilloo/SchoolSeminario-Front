@@ -17,20 +17,13 @@ export class RegistrarUsuarioComponent implements OnInit {
 
   modalRegistroExitoso: any;
   dataRegistroExitoso: string[] = Constantes.REGISTRO_EXITOSO;
-
   usuarioForm: FormGroup;
-
   @Output() usuarioModificar = new EventEmitter<UsuarioModificar>();
-
   divPrincipal = "divPrincipalRegistrar";
   formulario = "formularioRegistrar";
   inputLogin = "form-control inputLoginRegistrar"; 
   selects = "form-control selectRegistrar"; 
-
-  @Input() datosModificar = new DatosModificar("r", 
-    new UsuarioModificar("", "", "", "", "", "", "", "", ""))
-  ;
-
+  @Input() datosModificar = new DatosModificar("r", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
   tipoUsuarioSeleccionado: string = "Seleccionar";
   tiposUsuario: string[] = Constantes.TIPOS_USUARIO;
   tipoDocumentoSeleccionado: string = "Seleccionar";

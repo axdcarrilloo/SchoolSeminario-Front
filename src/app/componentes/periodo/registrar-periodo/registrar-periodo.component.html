@@ -1,15 +1,18 @@
 
 <div class="divPrincipal">
-    <form class="formularioRegistrar">
+    <form class="formularioRegistrar" [formGroup]="periodoForm" (ngSubmit)="registrar()">
         <div class="divCampos">
-            <label for="anno" class="labelregistrar"> Año </label>
-            <input type="text" id="anno" class="form-control inputLogin" placeholder="Año"/>
+            <input type="number" formControlName="anno" class="form-control inputLogin" placeholder="Año"/>
 
             <label for="nombrePeriodo" class="labelregistrar"> Nombre Periodo </label>
-            <select id="nombrePeriodo" class="form-control inputLogin">
+            <select id="nombrePeriodo" formControlName="nombre" class="form-control inputLogin">
                 <option [value]="item" *ngFor="let item of nombresPeriodo">{{item}}</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary btnRegistrar"> Registrar </button>
     </form>
+</div>
+
+<div class="modal fade" id="modalRegistroExitoso" tabindex="-1" aria-labelledby="modal para registro exitoso" aria-hidden="true">
+    <modal-alertas [datosInputs]="dataRegistroExitoso"></modal-alertas>
 </div>

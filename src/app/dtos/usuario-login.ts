@@ -1,9 +1,9 @@
 export class UsuarioLogin {
-    tipoUsuario: String;
-    usuario: String;
-    contrasenna: String;
+    tipoUsuario: string;
+    usuario: string;
+    contrasenna: string;
 
-    constructor(tipoUsuario: String, usuario: String, contrasenna: String) {
+    constructor(tipoUsuario: string, usuario: string, contrasenna: string) {
         this.tipoUsuario = tipoUsuario;
         this.usuario = usuario;
         this.contrasenna = contrasenna;
