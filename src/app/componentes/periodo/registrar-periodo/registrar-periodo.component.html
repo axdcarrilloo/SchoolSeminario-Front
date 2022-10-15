@@ -1,15 +1,15 @@
 
-<div class="divPrincipal">
+<div [ngClass]="divPrincipal">
     <form class="formularioRegistrar" [formGroup]="periodoForm" (ngSubmit)="registrar()">
         <div class="divCampos">
-            <input type="number" formControlName="anno" class="form-control inputLogin" placeholder="Año"/>
+            <input type="number" formControlName="anno" [ngClass]="inputs" placeholder="Año"/>
 
-            <label for="nombrePeriodo" class="labelregistrar"> Nombre Periodo </label>
-            <select id="nombrePeriodo" formControlName="nombre" class="form-control inputLogin">
-                <option [value]="item" *ngFor="let item of nombresPeriodo">{{item}}</option>
+            <label for="nombrePeriodo" class="labelRegistrar"> Nombre Periodo </label>
+            <select id="nombrePeriodo" (ngModelChange)="cargarPeriodoModificado()" formControlName="nombre" [ngClass]="inputs">
+                <option [value]="item" *ngFor="let item of nombresPeriodo">{{ item }}</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary btnRegistrar"> Registrar </button>
+        <button type="submit" class="btn btn-primary btnRegistrar" *ngIf="datosModificar?.tipoRegistro == 'r'"> Registrar </button>
     </form>
 </div>
 

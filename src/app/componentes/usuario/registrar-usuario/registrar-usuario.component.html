@@ -8,13 +8,13 @@
                     <option [value]="tipo" *ngFor="let tipo of tiposUsuario">{{ tipo }}</option>
                 </select>
 
-                <input type="number" [ngClass]="inputLogin" formControlName="numeroDocumento" placeholder="Documento"/>
+                <input type="number" [ngClass]="inputs" formControlName="numeroDocumento" placeholder="Documento"/>
 
-                <input type="text"  [ngClass]="inputLogin" formControlName="apellidos" placeholder="Apellidos"/>
+                <input type="text"  [ngClass]="inputs" formControlName="apellidos" placeholder="Apellidos"/>
 
-                <input type="text" [ngClass]="inputLogin" formControlName="direccion" placeholder="Direccion"/>
+                <input type="text" [ngClass]="inputs" formControlName="direccion" placeholder="Direccion"/>
                 
-                <input type="text" [ngClass]="inputLogin" formControlName="contrasenna"  *ngIf="datosModificar?.tipoRegistro == 'r'" placeholder="Contraseña"/>
+                <input type="text" [ngClass]="inputs" formControlName="contrasenna"  *ngIf="datosModificar?.tipoRegistro == 'r'" placeholder="Contraseña"/>
             </div>
             <div>
                 <label for="tipoDocumento"> Tipo de Documento </label>
@@ -22,11 +22,11 @@
                     <option [value]="tipo" *ngFor="let tipo of tiposDocumento">{{ tipo }}</option>
                 </select>
 
-                <input type="text" [ngClass]="inputLogin" formControlName="nombres" placeholder="Nombres"/>
+                <input type="text" [ngClass]="inputs" formControlName="nombres" placeholder="Nombres"/>
 
-                <input type="tel" [ngClass]="inputLogin" formControlName="celular" placeholder="Celular"/>
+                <input type="tel" [ngClass]="inputs" formControlName="celular" placeholder="Celular"/>
 
-                <input type="text" [ngClass]="inputLogin" formControlName="usuario" (ngModelChange)="cargarUsuarioModificar()" placeholder="Usuario"/>
+                <input type="text" [ngClass]="inputs" formControlName="usuario" (ngModelChange)="cargarUsuarioModificar()" placeholder="Usuario"/>
                 <br  *ngIf="datosModificar?.tipoRegistro == 'r'"/>
                 <br  *ngIf="datosModificar?.tipoRegistro == 'r'"/>
             </div>

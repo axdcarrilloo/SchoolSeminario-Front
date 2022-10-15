@@ -12,16 +12,12 @@ declare var window: any;
 })
 export class ConsultarUsuarioComponent implements OnInit {
 
-  // datosModificar = new DatosModificar("", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
-  datosModificar: any;
+  datosModificar?: DatosModificar;
   usuarioModificar?: UsuarioModificar;
-
-  modalModificacionExitosa: any;
+  private modalModificacionExitosa: any;
   dataModificacionExitosa: string[] = Constantes.MODIFICACION_EXITOSA;
-  
   objetoEliminar: string = "el Usuario";
   dataEliminacionExitosa: string[] = Constantes.ELIMINACION_EXITOSA;
-  
   private modalModificarUsuario: any;
   private modalConfirmarEliminacion: any;
   private modalEliminacionExitosa: any;

@@ -31,7 +31,7 @@
         <td>Otto</td>
         <td>@mdo</td>
         <td>
-          <a data-bs-toggle="modal" data-bs-target="#modalModificar">
+          <a data-bs-toggle="modal" (click)="cargarDatosModificar()" data-bs-target="#modalModificarPeriodo">
             <img src="../../../../assets/icons/modificar.png" id="imgModificar" title="Modificar" alt="Bootstrap" width="28" height="28">
           </a>
           <a data-bs-toggle="modal" data-bs-target="#modalEliminar">
@@ -43,8 +43,12 @@
   </table>
 </div>
 
-<div class="modal fade" id="modalModificar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Modal para modificar periodo" aria-hidden="true">
-  <modal-modificar-periodo></modal-modificar-periodo>
+<div class="modal fade" id="modalModificacionExitosa" tabindex="-1" aria-labelledby="modalEliminacionExitosa" aria-hidden="true">
+  <modal-alertas [datosInputs]="dataModificacionExitosa"></modal-alertas>
+</div>
+
+<div class="modal fade" id="modalModificarPeriodo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="Modal para modificar periodo" aria-hidden="true">
+  <modal-modificar-periodo [datosModificar]="datosModificar" (cerrarModalModificar)="cerrarModalModificarPeriodo($event)"></modal-modificar-periodo>
 </div>
 
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

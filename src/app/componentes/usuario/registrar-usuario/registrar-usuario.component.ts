@@ -21,7 +21,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   @Output() usuarioModificar = new EventEmitter<UsuarioModificar>();
   divPrincipal = "divPrincipalRegistrar";
   formulario = "formularioRegistrar";
-  inputLogin = "form-control inputLoginRegistrar"; 
+  inputs = "form-control inputRegistrar"; 
   selects = "form-control selectRegistrar"; 
   @Input() datosModificar = new DatosModificar("r", new UsuarioModificar("", "", "", "", "", "", "", "", ""));
   tipoUsuarioSeleccionado: string = "Seleccionar";
@@ -84,7 +84,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     if(this.datosModificar?.tipoRegistro == "m") {
       this.divPrincipal = "divPrincipalModificar";
       this.formulario = "formularioModificar";
-      this.inputLogin = "form-control inputLoginModificar"; 
+      this.inputs = "form-control inputModificar"; 
       this.selects = "form-control selectModificar"; 
     }
   }
