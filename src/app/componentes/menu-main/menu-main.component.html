@@ -11,7 +11,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item dropdown" *ngIf="tipoUsuario=='000' || tipoUsuario=='03' || tipoUsuario=='04'">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Registrar
             </a>
             <ul class="dropdown-menu">
@@ -19,21 +19,21 @@
                 <a class="dropdown-item" routerLink="registrar-periodo"> Periodo </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Curso </a>
+                <a class="dropdown-item"> Curso </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03'">
                 <a class="dropdown-item" routerLink="registrar-usuario"> Usuario </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Asignatura </a>
+                <a class="dropdown-item"> Asignatura </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03'">
-                <a class="dropdown-item" href="#"> Codigo </a>
+                <a class="dropdown-item"> Codigo </a>
               </li>
             </ul>
           </li>
           <li class="nav-item dropdown" *ngIf="tipoUsuario=='000' || tipoUsuario=='02' || tipoUsuario=='03' || tipoUsuario=='04'">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Consultar
             </a>
             <ul class="dropdown-menu">
@@ -41,42 +41,46 @@
                 <a class="dropdown-item" routerLink="consultar-periodo"> Periodo </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Curso </a>
+                <a class="dropdown-item"> Curso </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03' || tipoUsuario=='04'">
                 <a class="dropdown-item" routerLink="consultar-usuario"> Usuario </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Asignatura </a>
+                <a class="dropdown-item"> Asignatura </a>
               </li>
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='03' || tipoUsuario=='04'">
-                <a class="dropdown-item" href="#"> Codigo </a>
+                <a class="dropdown-item"> Codigo </a>
               </li>
             </ul>
           </li>
           <li class="nav-item dropdown" *ngIf="tipoUsuario=='000' || tipoUsuario=='03' || tipoUsuario=='04'">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Asignaciones
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" routerLink="consultar-asignaciones-periodo"> Periodo </a>
+                <a class="dropdown-item" title="A curso"> Estudiante </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Curso </a>
+                <a class="dropdown-item" title="A curso"> Asignatura </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" title="A periodo"> Curso </a>
               </li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Notas
             </a>
             <ul class="dropdown-menu">
               <li *ngIf="tipoUsuario=='000' || tipoUsuario=='02'">
-                <a class="dropdown-item" href="#"> Calificar </a>
+                <a class="dropdown-item"> Calificar </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#"> Ver notas </a>
+                <a class="dropdown-item"> Ver notas </a>
               </li>
             </ul>
           </li>
