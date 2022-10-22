@@ -1,0 +1,26 @@
+
+<div class="divPrincipal">
+    <select id="sltTipoAsignacion" [(ngModel)]="tipoAsignacionSeleccionado" class="form-control" 
+        (ngModelChange)="seleccionarTipoAsignacion()" [disabled]="validarSelecionTipoAsignacion">
+
+        <option [value]="item" *ngFor="let item of tiposAsignaciones">{{ item }}</option>
+    </select>
+
+    <div class="row divPanel">
+        <div class="col divPanels">
+            <div class="form-check" *ngFor="let curso of cursos">
+                <input class="form-check-input" type="radio" name="seleccionarMaestro" 
+                    [value]="curso" (click)="seleccionarCurso(curso)"
+                >
+                <label class="form-check-label">
+                  {{ curso }}
+                </label>
+            </div>
+        </div>
+        <div class="col divPanels">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum suscipit labore ipsam quidem commodi impedit accusamus explicabo cupiditate excepturi hic delectus, deserunt ratione quis vero ex. Aliquid mollitia possimus repudiandae.
+            </p>
+        </div>
+    </div>
+</div>

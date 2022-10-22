@@ -1,0 +1,27 @@
+
+.divPrincipal {
+    width: 99%;
+    border: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1px;
+}
+
+div > #sltTipoAsignacion {
+    width: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.divPrincipal > .divPanel {
+    width: 100%;
+    column-count: 2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.divPanel > .divPanels {
+    border: solid;
+}

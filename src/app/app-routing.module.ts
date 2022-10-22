@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
+import { RegistrarAsignacionComponent } from "./componentes/asignaciones/registrar-asignacion/registrar-asignacion.component";
 import { InicioComponent } from "./componentes/inicio/inicio.component";
 import { ConsultarPeriodoComponent } from "./componentes/periodo/consultar-periodo/consultar-periodo.component";
 import { RegistrarPeriodoComponent } from "./componentes/periodo/registrar-periodo/registrar-periodo.component";
@@ -8,6 +9,7 @@ import { ConsultarUsuarioComponent } from "./componentes/usuario/consultar-usuar
 import { RegistrarUsuarioComponent } from "./componentes/usuario/registrar-usuario/registrar-usuario.component";
 
 const routes: Routes = [
+    { path: 'registrar-asignacion', component: RegistrarAsignacionComponent },
     { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
     { path: 'consultar-usuario', component: ConsultarUsuarioComponent },
     { path: 'registrar-periodo', component: RegistrarPeriodoComponent },
