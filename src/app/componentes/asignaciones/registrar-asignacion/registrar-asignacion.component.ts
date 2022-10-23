@@ -8,12 +8,13 @@ import { Constantes } from 'src/app/utils/constantes';
 })
 export class RegistrarAsignacionComponent implements OnInit {
 
+  tituloMaestro = "";
   cursoSeleccionado = "";
   validarSelecionTipoAsignacion = false;
   tiposAsignaciones = Constantes.TIPOS_ASIGNACIONES;
   tipoAsignacionSeleccionado = "Seleccionar";
 
-  cursos = ["1ro","2do","3ro","4to","5to"];
+  maestros: string[] = [];
 
   constructor() { }
 
@@ -26,8 +27,19 @@ export class RegistrarAsignacionComponent implements OnInit {
   }
 
   seleccionarTipoAsignacion(): void {
-    console.log(this.tipoAsignacionSeleccionado);
     this.validarSelecionTipoAsignacion = true;
+    switch (this.tipoAsignacionSeleccionado) {
+      case 'Estudiante':
+        this.maestros = ["Diego","Mario","Lisa","Plinio","Marta"];
+      break;
+      case "Asignatura":
+        this.maestros = ["Mate","Religion","Fisica","Sociales","Deporte"];
+      break;
+      case "Curso":
+        this.maestros = ["1ro","2do","3ro","4to","5to"];    
+      break;
+    }
+    console.log(this.tipoAsignacionSeleccionado);
   }
 
 }
