@@ -1,24 +1,33 @@
+
 <div class="divPrincipal">
-    <select id="sltTipoAsignacion" [(ngModel)]="tipoAsignacionSeleccionado" class="form-control" 
-        (ngModelChange)="seleccionarTipoAsignacion()" [disabled]="validarSelecionTipoAsignacion">
+    <select [(ngModel)]="tipoAsignacionSeleccionado" [ngClass]="styleSelect" (ngModelChange)="seleccionarTipoAsignacion()" 
+        [disabled]="validarSelecionTipoAsignacion">
 
         <option [value]="item" *ngFor="let item of tiposAsignaciones">{{ item }}</option>
     </select>
 
     <div class="row divPanel">
         <div class="col divPanels">
-            <label>{{ tituloMaestro }}</label>
+            <label class="lblTitulosPanels">{{ tituloMaestros }}</label>
             <div class="form-check" *ngFor="let maestro of maestros">
-                <input class="form-check-input" type="radio" name="seleccionarMaestro" [value]="maestro" (click)="seleccionarCurso(maestro)">
+                <input class="form-check-input" type="radio" name="seleccionarMaestros" [value]="maestro" (change)="seleccionarMaestro(maestro)">
                 <label class="form-check-label">
                   {{ maestro }}
                 </label>
             </div>
         </div>
         <div class="col divPanels">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum suscipit labore ipsam quidem commodi impedit accusamus explicabo cupiditate excepturi hic delectus, deserunt ratione quis vero ex. Aliquid mollitia possimus repudiandae.
-            </p>
+            <label class="lblTitulosPanels">{{ tituloAsignados }}</label>
+            <div class="form-check" *ngFor="let asignado of asignados">
+                <input class="form-check-input" type="checkbox" [id]="asignado" name="seleccionarAsignado" [value]="asignado" 
+                    (click)="seleccionarAsignados(asignado)"
+                >
+
+                <label class="form-check-label">
+                    {{ asignado }}
+                </label>
+            </div>
         </div>
     </div>
+    <button [ngClass]="styleBotonAsignar" [disabled]="activarBotonAsignar" (click)="asignar()"> Asignar </button>
 </div>

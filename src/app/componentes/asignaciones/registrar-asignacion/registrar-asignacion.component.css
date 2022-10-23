@@ -1,17 +1,33 @@
 
 .divPrincipal {
-    width: 99%;
+    width: 50%;
     border: solid;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1px;
+    padding: 2px;
+    background-color: #DEEEF7;
+    border-color: #0cafe5;
+    border-radius: 10px;
 }
 
-div > #sltTipoAsignacion {
+.divPrincipal > .sltTipoAsignacion {
     width: 8rem;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    background-color: #0d6efd;
+    color: white;
+    cursor: pointer;
+}
+
+.divPrincipal > .sltTipoAsignacionDesactivado {
+    width: 8rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #6c757d;
+    color: white;
 }
 
 .divPrincipal > .divPanel {
@@ -24,4 +40,31 @@ div > #sltTipoAsignacion {
 
 .divPanel > .divPanels {
     border: solid;
+    border-color: #0cafe5;
+    border-radius: 6px;
+}
+
+.divPanels > .lblTitulosPanels {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.divPrincipal > .btnAsignar {
+    width: 8rem;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+    cursor: pointer;
+    cursor: pointer;
+}
+
+.divPrincipal > .btnAsignarDesactivado {
+    width: 8rem;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+    cursor: pointer;
+    background-color: #6c757d;
 }
