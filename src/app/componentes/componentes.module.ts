@@ -28,7 +28,7 @@ import { ConsultarAsignacionesComponent } from './asignaciones/consultar-asignac
     RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent, RegistrarAsignacionComponent
+    MenuMainComponent, LoginComponent
   ],
   providers: []
 })
