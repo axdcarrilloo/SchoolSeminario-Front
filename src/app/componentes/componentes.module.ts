@@ -18,6 +18,7 @@ import { ConsultarUsuarioComponent } from './usuario/consultar-usuario/consultar
 import { ModalModificarUsuarioComponent } from './usuario/modal-modificar-usuario/modal-modificar-usuario.component';
 import { RegistrarAsignacionComponent } from './asignaciones/registrar-asignacion/registrar-asignacion.component';
 import { ConsultarAsignacionesComponent } from './asignaciones/consultar-asignaciones/consultar-asignaciones.component';
+import { ServiciosModule } from '../servicios/servicios.module';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,10 @@ import { ConsultarAsignacionesComponent } from './asignaciones/consultar-asignac
     RegistrarUsuarioComponent, ConsultarUsuarioComponent, ModalModificarUsuarioComponent, RegistrarAsignacionComponent, ConsultarAsignacionesComponent
   ],
   imports: [
-    RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule
+    RoutingModule, CommonModule, FormsModule, ReactiveFormsModule, SharedModule, ServiciosModule
   ],
   exports: [
-    MenuMainComponent, LoginComponent
+    MenuMainComponent, LoginComponent, RegistrarUsuarioComponent
   ],
   providers: []
 })

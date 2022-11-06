@@ -1,8 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatosModificar } from 'src/app/dtos/datos-modificar';
+import { ResponseMainDto } from 'src/app/dtos/response-main';
 import { UsuarioModificar } from 'src/app/dtos/usuario-modificar';
+import { UsuarioServicioService } from 'src/app/servicios/usuario-servicio.service';
 import { Constantes } from 'src/app/utils/constantes';
 
 declare var window: any;
@@ -29,7 +32,7 @@ export class RegistrarUsuarioComponent implements OnInit {
   tipoDocumentoSeleccionado: string = "Seleccionar";
   tiposDocumento: string[] = Constantes.TIPOS_DOCUMENTOS;
 
-  constructor(private fb: FormBuilder, private route: Router) {
+  constructor(private fb: FormBuilder, private route: Router, private usuarioSvc: UsuarioServicioService) {
     this.usuarioForm = this.cargarFormulario();
   }
 
@@ -52,7 +55,8 @@ export class RegistrarUsuarioComponent implements OnInit {
   cargarUsuarioModificar(): void {
     const caracteres = this.usuarioForm.value.usuario.length;
     if(this.datosModificar?.tipoRegistro == "m" && caracteres > 4) {
-      const usuario = new UsuarioModificar(this.usuarioForm.value.tipoUsuario, this.usuarioForm.value.tipoDocumento, this.usuarioForm.value.numeroDocumento,
+      const usuario = new UsuarioModificar(this.usuarioSvc.validarTipoUsuario(this.usuarioForm.value.tipoUsuario), this.usuarioSvc.validarTipoDocumento(this.usuarioForm.value.tipoDocumento), 
+        this.usuarioForm.value.numeroDocumento,
         this.usuarioForm.value.nombres, this.usuarioForm.value.apellidos, this.usuarioForm.value.celular, this.usuarioForm.value.direccion, 
         this.usuarioForm.value.usuario, this.usuarioForm.value.contrasenna)
       ;
@@ -75,9 +79,23 @@ export class RegistrarUsuarioComponent implements OnInit {
   }
 
   registrar(): void {
+    const usuario = new UsuarioModificar(this.usuarioSvc.validarTipoUsuario(this.usuarioForm.value.tipoUsuario), this.usuarioSvc.validarTipoDocumento(this.usuarioForm.value.tipoDocumento), 
+        this.usuarioForm.value.numeroDocumento, this.usuarioForm.value.nombres, this.usuarioForm.value.apellidos, this.usuarioForm.value.celular, 
+        this.usuarioForm.value.direccion, this.usuarioForm.value.usuario, this.usuarioForm.value.contrasenna)
+      ;
+    this.usuarioSvc.registrar(usuario).subscribe((data: ResponseMainDto) => {
+      if(data != null) {
+        console.log(data.mensaje);
+        this.usuarioForm.reset();
+        this.modalRegistroExitoso.show();
+      }
+    }, (error: HttpErrorResponse) => {
+      console.log(error.error.response);
+    });
+
+
+
     console.log(this.usuarioForm.value);
-    this.usuarioForm.reset();
-    this.modalRegistroExitoso.show();
   }
 
   accionModificar(): void {
